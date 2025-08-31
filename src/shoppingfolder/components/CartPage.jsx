@@ -19,7 +19,7 @@ const CartPage = ({ cartItems, removeFromCart, totalPrice, addToCart }) => {
               <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                 <button onClick={() => removeFromCart(item.id)}>Remove from cart</button>
                 <span>Quantity: {item.quantity}</span>
-            
+              
               </div>
             </div>
           ))}
@@ -34,4 +34,3 @@ const CartPage = ({ cartItems, removeFromCart, totalPrice, addToCart }) => {
 };
 
 export default CartPage;
-
