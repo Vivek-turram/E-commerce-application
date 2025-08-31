@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
-const Header = ({ cartItems }) => {
+
+  const Header = ({ cartItems }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
