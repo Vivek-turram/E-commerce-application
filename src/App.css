@@ -21,7 +21,8 @@
 }
 
 .title {
-    font-size: 1rem;
+    font-size: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
 }
 
@@ -125,59 +126,84 @@
   border-radius: 5px;          
   background-color: #f0f0f0;    
 }
-@media screen and (max-width: 768px) {
-    .headerSection {
-        flex-direction: column;
-        align-items: center;
-        padding: 15px;
-        text-align: center;
-    }
 
-    .center ul {
-        padding: 0;
-    }
-
-    .center ul li {
-        display: block;
-        margin: 8px 0;
-    }
-
-    .search input {
-        width: 100%;
-        margin: 10px 0 0 0;
-    }
-
-    .menImages,
-    .womenImages {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .menImages img,
-    .womenImages img {
-        width: 90%;
-        max-width: 280px;
-        height: auto;
-        margin-bottom: 15px;
-    }
-
-    .cart-container {
-        width: 95%;
-        padding: 15px;
-    }
+.cart{
+  background-color: white; 
+  color: black;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
 }
-@media screen and (min-width: 769px) {
-    .headerSection {
-        flex-direction: row;
-    }
+.headerSection a,
+.headerSection a:visited,
+.headerSection a:hover,
+.headerSection a:active,
+.headerSection a:focus {
+         
+  text-decoration: none;  
+  border-radius: 2px;
+  background-color: whitesmoke;
+  color: black;
 
-    .center ul li {
-        display: inline-flex;
-    }
-
-    .menImages img,
-    .womenImages img {
-       width: 180px;  
-       height: 180px;  
-    }
 }
+
+.headerSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: black;
+  color: white;
+}
+
+.headerSection .center ul {
+  display: flex;
+  gap: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .headerSection {
+    flex-direction: column;   
+    align-items: flex-start;  
+    padding: 10px 15px;
+  }
+
+  .headerSection .center ul {
+    flex-direction: column;   
+    gap: 10px;
+    width: 100%;
+  }
+
+  .headerSection .search {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .headerSection .search input {
+    width: 100%;              
+    padding: 8px;
+  }
+
+  .headerSection .right {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .headerSection h2 {
+    font-size: 18px;  
+  }
+
+  .headerSection .center ul li {
+    font-size: 14px;  
+  }
+}
+
+
