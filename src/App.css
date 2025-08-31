@@ -1,0 +1,128 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.headerSection {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    padding-top: 20px;
+}
+
+.center ul li {
+    list-style: none;
+    display: inline-flex;
+    margin: 0px 5px;
+}
+
+.title {
+    font-size: 1rem;
+    
+}
+
+.left {
+    flex: 2;
+    /* border: 1px solid black; */
+}
+
+.center {
+    flex: 4;
+    /* border: 1px solid black; */
+}
+
+.search {
+    flex: 2;
+    /* border: 1px solid black; */
+}
+
+.search input {
+    padding: 10px;
+    width: 20rem;
+    border-radius: 5px;
+    margin-left: -150px;
+}
+
+.right {
+    flex: 4;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+
+.bannerBox {
+    margin: 10px 0px;
+}
+
+.bannerBox img {
+    width: 100%;
+}
+
+.menImages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.menImages img:hover{
+     transform: scale(1.1);  
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);  
+  width: 180px;  
+  height: 180px; 
+    
+
+}
+
+.womenImages{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.womenImages img:hover{
+    transform: scale(1.1);  
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);  
+  width: 180px;  
+  height: 180px;    
+}
+.cart-container {
+  border: 2px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+  background-color: #f9f9f9;
+  max-width: 800px;
+  margin: 20px auto;
+  justify-content: center;
+  align-items: center;
+}
+.cart-container h2{
+    border: 2px solid #ddd;
+    font-size: large;
+    color: white;
+    background-color:#333;
+    padding: 10px;
+    border-radius: 8px;
+    
+    width: 200px;
+    text-align: center;
+    text-shadow: #f9f9f9;
+    
+    
+}
+.collectionSection h2 {
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Georgia', serif;  
+  border: 2px solid #000;       
+  padding: 10px;
+  border-radius: 5px;          
+  background-color: #f0f0f0;    
+}
