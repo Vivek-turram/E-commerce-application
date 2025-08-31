@@ -7,7 +7,7 @@ const Header = ({ cartItems }) => {
 
       <div className="left">
         <div className="title">
-          <h2>Shopping Mall</h2>
+          <h2>SHOPPING MALL</h2>
         </div>
       </div>
 
