@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CartPage from "../components/CartPage";
 import SignIn from "../components/signin";
 import SignUp from "../components/signup";
+
 const MainPage = () => {
   const [gentsFashion] = useState(Gents);
   const [ladiesFashion] = useState(Ladies);
@@ -16,17 +17,31 @@ const MainPage = () => {
 
   const addToCart = (product) => {
     setCartItems((prevItems) => {
-      if (prevItems.some((item) => item.id === product.id)) {
-        return prevItems;
+      const existing = prevItems.find((item) => item.id === product.id);
+      if (existing) {
+        return prevItems.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        return [...prevItems, { ...product, quantity: 1 }];
       }
-      return [...prevItems, product];
     });
   };
 
   const removeFromCart = (productId) => {
-    setCartItems((prevItems) =>
-      prevItems.filter((item) => item.id !== productId)
-    );
+    setCartItems((prevItems) => {
+      const existing = prevItems.find((item) => item.id === productId);
+      if (existing && existing.quantity > 1) {
+        return prevItems.map((item) =>
+          item.id === productId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        );
+      }
+      return prevItems.filter((item) => item.id !== productId);
+    });
   };
 
   const calculateTotal = () => {
@@ -35,7 +50,7 @@ const MainPage = () => {
         product.price.replace(" INR", "").replace(",", ""),
         10
       );
-      return total + price;
+      return total + price * product.quantity;
     }, 0);
   };
 
@@ -50,17 +65,27 @@ const MainPage = () => {
             element={
               <>
                 <Collections gentsFashion={gentsFashion} addToCart={addToCart} />
-                <WomanCollection ladiesFashion={ladiesFashion} addToCart={addToCart} />
+                <WomanCollection
+                  ladiesFashion={ladiesFashion}
+                  addToCart={addToCart}
+                />
               </>
             }
           />
           <Route
             path="/men"
-            element={<Collections gentsFashion={gentsFashion} addToCart={addToCart} />}
+            element={
+              <Collections gentsFashion={gentsFashion} addToCart={addToCart} />
+            }
           />
           <Route
             path="/women"
-            element={<WomanCollection ladiesFashion={ladiesFashion} addToCart={addToCart} />}
+            element={
+              <WomanCollection
+                ladiesFashion={ladiesFashion}
+                addToCart={addToCart}
+              />
+            }
           />
           <Route
             path="/cart"
@@ -73,7 +98,7 @@ const MainPage = () => {
             }
           />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />  
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
         <Footer />
       </div>
