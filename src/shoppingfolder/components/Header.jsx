@@ -23,8 +23,8 @@ const Header = ({ cartItems }) => {
       <div className={`menuBar ${menuOpen ? "active" : ""}`}>
         <ul>
           <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-          <li><Link to="/men" onClick={() => setMenuOpen(false)}>Men</Link></li>
           <li><Link to="/women" onClick={() => setMenuOpen(false)}>Women</Link></li>
+          <li><Link to="/men" onClick={() => setMenuOpen(false)}>Men</Link></li>
           <li><Link to="/signin" onClick={() => setMenuOpen(false)}>Signin</Link></li>
           <li><Link to="/signup" onClick={() => setMenuOpen(false)}>Signup</Link></li>
         </ul>
