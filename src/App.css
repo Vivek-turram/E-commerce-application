@@ -5,7 +5,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ================= HEADER ================= */
 .headerSection {
   display: flex;
   justify-content: space-between;
@@ -14,14 +13,15 @@
   color: white;
   padding: 15px 30px;
   position: relative;
+  flex-wrap: wrap;
 }
 
 .title {
   font-size: 20px;
   font-weight: bold;
+  white-space: nowrap;
 }
 
-/* Menu bar (desktop) */
 .menuBar ul {
   list-style: none;
   display: flex;
@@ -34,7 +34,7 @@
   font-weight: bold;
   padding: 6px 10px;
   border-radius: 4px;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.3s;
 }
 
 .menuBar ul li a:hover {
@@ -42,15 +42,14 @@
   color: black;
 }
 
-/* Search bar */
 .search input {
   padding: 8px;
   width: 18rem;
   border-radius: 5px;
   border: none;
+  outline: none;
 }
 
-/* Cart button */
 .cart a {
   background-color: white;
   color: black;
@@ -58,7 +57,7 @@
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
-  transition: 0.3s;
+  transition: background 0.3s, color 0.3s;
 }
 
 .cart a:hover {
@@ -66,15 +65,13 @@
   color: white;
 }
 
-/* Hamburger icon (mobile only) */
 .hamburger {
   display: none;
-  font-size: 24px;
+  font-size: 26px;
   cursor: pointer;
   color: white;
 }
 
-/* ================= LAYOUT CONTAINER ================= */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -82,7 +79,6 @@
   padding: 20px;
 }
 
-/* Banner full width */
 .bannerBox img {
   width: 100%;
   height: auto;
@@ -90,7 +86,6 @@
   border-radius: 8px;
 }
 
-/* ================= PRODUCT GRID ================= */
 .menImages,
 .womenImages {
   display: grid;
@@ -105,7 +100,7 @@
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
-  transition: 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .menImages img:hover,
@@ -114,7 +109,6 @@
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ================= CART CONTAINER ================= */
 .cart-container {
   border: 2px solid #ddd;
   padding: 20px;
@@ -128,69 +122,64 @@
   font-size: 20px;
   color: white;
   background-color: #333;
-  padding: 10px;
+  padding: 10px 15px;
   border-radius: 8px;
   width: fit-content;
   margin-bottom: 15px;
 }
 
-/* ================= RESPONSIVE ================= */
-
-/* Tablet & Mobile */
+/* ✅ Tablet & Mobile screens */
 @media (max-width: 768px) {
-  .menuBar {
-    display: none;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background: black;
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    z-index: 1000;
+  .headerSection {
+    flex-wrap: nowrap;
+    justify-content: space-between;
   }
 
-  .menuBar.active {
-    display: block;
+  .menuBar {
+    position: static;
+    display: flex;
+    justify-content: center; /* ✅ Center menu */
+    flex: 1;
   }
 
   .menuBar ul {
-    flex-direction: column;
+    flex-direction: row;
     gap: 15px;
   }
 
   .hamburger {
-    display: block;
-  }
-
-  .search {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .search input {
-    width: 100%;
+    display: none; /* ✅ no hamburger, always visible menu */
   }
 
   .right {
-    margin-top: 10px;
-    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 0;
+  }
+
+  .cart {
+    margin-left: auto; /* ✅ push cart to right */
+  }
+
+  .search {
+    display: none; /* optional: hide search on mobile */
   }
 }
 
-/* Small mobile */
+/* ✅ Mobile screens */
 @media (max-width: 480px) {
   .title {
     font-size: 16px;
+    flex: 0;
   }
 
   .menuBar ul li a {
     font-size: 14px;
   }
 
-  .search input {
-    padding: 6px;
+  .cart a {
+    padding: 6px 10px;
+    font-size: 14px;
   }
 }
