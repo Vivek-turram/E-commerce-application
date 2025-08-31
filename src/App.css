@@ -20,10 +20,12 @@
   font-weight: bold;
 }
 
+
 .menuBar ul {
   list-style: none;
   display: flex;
   gap: 20px;
+
 }
 
 .menuBar ul li a {
@@ -40,12 +42,14 @@
   color: black;
 }
 
+
 .search input {
   padding: 8px;
   width: 18rem;
   border-radius: 5px;
   border: none;
 }
+
 
 .cart a {
   background-color: white;
@@ -62,12 +66,14 @@
   color: white;
 }
 
+
 .hamburger {
   display: none;
   font-size: 24px;
   cursor: pointer;
   color: white;
 }
+
 
 .container {
   width: 100%;
@@ -76,12 +82,14 @@
   padding: 20px;
 }
 
+
 .bannerBox img {
   width: 100%;
   height: auto;
   object-fit: cover;
   border-radius: 8px;
 }
+
 
 .menImages,
 .womenImages {
@@ -106,6 +114,7 @@
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
+
 .cart-container {
   border: 2px solid #ddd;
   padding: 20px;
@@ -125,62 +134,56 @@
   margin-bottom: 15px;
 }
 
-/* ✅ Tablet & Mobile screens */
 @media (max-width: 768px) {
-  .headerSection {
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
+  .menuBar {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: black;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    z-index: 1000;
   }
 
-  .menuBar {
-    display: flex;
-    position: static;           /* remove absolute positioning */
-    justify-content: center;    /* center menu */
-    flex: 1;                    /* take middle space */
-    background: none;
-    padding: 0;
+  .menuBar.active {
+    display: block;
   }
 
   .menuBar ul {
-    flex-direction: row;
+    flex-direction: column;
     gap: 15px;
   }
 
   .hamburger {
-    display: none; /* no hamburger, always visible menu */
-  }
-
-  .right {
-    display: flex;
-    justify-content: flex-end;  /* push cart to right */
-    align-items: center;
-    flex: 0;
-    margin-top: 0;
-    width: auto;
-  }
-
-  .cart {
-    margin-left: auto;          /* ensure cart stays at right */
+    display: block;
   }
 
   .search {
-    display: none;              /* optional: hide search on mobile */
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search input {
+    width: 100%;
+  }
+
+  .right {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
 }
 
-/* ✅ Mobile small screens */
+
 @media (max-width: 480px) {
   .title {
     font-size: 16px;
   }
 
   .menuBar ul li a {
-    font-size: 14px;
-  }
-
-  .cart a {
-    padding: 6px 10px;
     font-size: 14px;
   }
 
