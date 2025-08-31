@@ -1,33 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa'; // icons for hamburger & close
 
 const Header = ({ cartItems }) => {
-  return (
-    <div className='headerSection'>
+  const [menuOpen, setMenuOpen] = useState(false);
 
+  // calculate total quantity
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  return (
+    <div className="headerSection">
+
+      {/* Left Side - Logo */}
       <div className="left">
-        <div className="title">
-          <h2>SHOPPING MALL</h2>
-        </div>
+        <h2>SHOPPING MALL</h2>
       </div>
 
-      <div className="center">
+      {/* Hamburger Icon (visible only on mobile) */}
+      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </div>
+
+      {/* Center - Menu Bar */}
+      <div className={`menuBar ${menuOpen ? "active" : ""}`}>
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/women">Women</Link></li>
-          <li><Link to="/men">Men</Link></li>
+          <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+          <li><Link to="/men" onClick={() => setMenuOpen(false)}>Men</Link></li>
+          <li><Link to="/women" onClick={() => setMenuOpen(false)}>Women</Link></li>
+          <li><Link to="/signin" onClick={() => setMenuOpen(false)}>Signin</Link></li>
+          <li><Link to="/signup" onClick={() => setMenuOpen(false)}>Signup</Link></li>
         </ul>
       </div>
 
-      <div className="search">
-        <input type="text" placeholder="Search..." />
-      </div>
+      {/* Right Side - Cart */}
       <div className="right">
-        <div className="signin">
-          <Link to="/signin">Signin</Link> / <Link to="/signup">Signup</Link>
-        </div>
         <div className="cart">
-          <Link to="/cart">Cart ({cartItems.length})</Link>
+          <Link to="/cart">Cart ({totalItems})</Link>
         </div>
       </div>
     </div>
