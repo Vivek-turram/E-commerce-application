@@ -13,13 +13,11 @@
   color: white;
   padding: 15px 30px;
   position: relative;
-  flex-wrap: wrap;
 }
 
 .title {
   font-size: 20px;
   font-weight: bold;
-  white-space: nowrap;
 }
 
 .menuBar ul {
@@ -34,7 +32,7 @@
   font-weight: bold;
   padding: 6px 10px;
   border-radius: 4px;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s;
 }
 
 .menuBar ul li a:hover {
@@ -47,7 +45,6 @@
   width: 18rem;
   border-radius: 5px;
   border: none;
-  outline: none;
 }
 
 .cart a {
@@ -57,7 +54,7 @@
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
-  transition: background 0.3s, color 0.3s;
+  transition: 0.3s;
 }
 
 .cart a:hover {
@@ -67,7 +64,7 @@
 
 .hamburger {
   display: none;
-  font-size: 26px;
+  font-size: 24px;
   cursor: pointer;
   color: white;
 }
@@ -100,7 +97,7 @@
   height: 200px;
   object-fit: cover;
   border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .menImages img:hover,
@@ -122,7 +119,7 @@
   font-size: 20px;
   color: white;
   background-color: #333;
-  padding: 10px 15px;
+  padding: 10px;
   border-radius: 8px;
   width: fit-content;
   margin-bottom: 15px;
@@ -133,13 +130,16 @@
   .headerSection {
     flex-wrap: nowrap;
     justify-content: space-between;
+    align-items: center;
   }
 
   .menuBar {
-    position: static;
     display: flex;
-    justify-content: center; /* ✅ Center menu */
-    flex: 1;
+    position: static;           /* remove absolute positioning */
+    justify-content: center;    /* center menu */
+    flex: 1;                    /* take middle space */
+    background: none;
+    padding: 0;
   }
 
   .menuBar ul {
@@ -148,30 +148,31 @@
   }
 
   .hamburger {
-    display: none; /* ✅ no hamburger, always visible menu */
+    display: none; /* no hamburger, always visible menu */
   }
 
   .right {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end;  /* push cart to right */
     align-items: center;
     flex: 0;
+    margin-top: 0;
+    width: auto;
   }
 
   .cart {
-    margin-left: auto; /* ✅ push cart to right */
+    margin-left: auto;          /* ensure cart stays at right */
   }
 
   .search {
-    display: none; /* optional: hide search on mobile */
+    display: none;              /* optional: hide search on mobile */
   }
 }
 
-/* ✅ Mobile screens */
+/* ✅ Mobile small screens */
 @media (max-width: 480px) {
   .title {
     font-size: 16px;
-    flex: 0;
   }
 
   .menuBar ul li a {
@@ -181,5 +182,9 @@
   .cart a {
     padding: 6px 10px;
     font-size: 14px;
+  }
+
+  .search input {
+    padding: 6px;
   }
 }
