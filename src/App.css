@@ -15,7 +15,7 @@
   position: relative;
 }
 
-/* Center title in header */
+/* ✅ Center title in header */
 .title {
   position: absolute;
   left: 50%;
@@ -130,7 +130,7 @@
   margin-bottom: 15px;
 }
 
-/* 🔹 Mobile view (dropdown leftside) */
+/* 🔹 Mobile view (dropdown leftside + cart fixed right) */
 @media (max-width: 768px) {
   .menuBar {
     display: none;
@@ -169,7 +169,20 @@
     display: block;
     font-size: 26px;
     cursor: pointer;
-    z-index: 1100; /* ensure above menu */
+    z-index: 1100; /* above menu */
+  }
+
+  /* ✅ Keep cart top-right in mobile */
+  .right {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    margin: 0;
+  }
+
+  .cart a {
+    padding: 6px 12px;
+    font-size: 14px;
   }
 
   .search {
@@ -181,16 +194,9 @@
   .search input {
     width: 100%;
   }
-
-  .right {
-    margin-top: 12px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px;
-  }
 }
 
+/* Extra small screens */
 @media (max-width: 480px) {
   .title {
     font-size: 16px;
@@ -198,6 +204,11 @@
 
   .menuBar ul li a {
     font-size: 14px;
+  }
+
+  .cart a {
+    padding: 5px 10px;
+    font-size: 13px;
   }
 
   .search input {
