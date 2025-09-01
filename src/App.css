@@ -20,12 +20,10 @@
   font-weight: bold;
 }
 
-
 .menuBar ul {
   list-style: none;
   display: flex;
   gap: 20px;
-
 }
 
 .menuBar ul li a {
@@ -42,14 +40,12 @@
   color: black;
 }
 
-
 .search input {
   padding: 8px;
   width: 18rem;
   border-radius: 5px;
   border: none;
 }
-
 
 .cart a {
   background-color: white;
@@ -66,14 +62,12 @@
   color: white;
 }
 
-
 .hamburger {
   display: none;
   font-size: 24px;
   cursor: pointer;
   color: white;
 }
-
 
 .container {
   width: 100%;
@@ -82,14 +76,12 @@
   padding: 20px;
 }
 
-
 .bannerBox img {
   width: 100%;
   height: auto;
   object-fit: cover;
   border-radius: 8px;
 }
-
 
 .menImages,
 .womenImages {
@@ -114,7 +106,6 @@
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-
 .cart-container {
   border: 2px solid #ddd;
   padding: 20px;
@@ -134,16 +125,18 @@
   margin-bottom: 15px;
 }
 
+/* 🔹 Mobile view (dropdown leftside) */
 @media (max-width: 768px) {
   .menuBar {
     display: none;
     position: absolute;
-    top: 60px;
-    left: 0;
+    top: 60px;   /* below header */
+    left: 0;     /* stick to left */
     background: black;
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
+    width: 220px;   /* dropdown width */
+    text-align: left;
+    padding: 15px 0;
+    border-radius: 0 0 8px 0;
     z-index: 1000;
   }
 
@@ -153,16 +146,30 @@
 
   .menuBar ul {
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
+    padding-left: 10px;
+  }
+
+  .menuBar ul li {
+    text-align: left;
+  }
+
+  .menuBar ul li a {
+    display: block;
+    padding: 8px 15px;
+    width: 100%;
   }
 
   .hamburger {
     display: block;
+    font-size: 26px;
+    cursor: pointer;
   }
 
   .search {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 12px;
+    padding: 0 10px;
   }
 
   .search input {
@@ -170,13 +177,13 @@
   }
 
   .right {
-    margin-top: 10px;
+    margin-top: 12px;
     width: 100%;
     display: flex;
     justify-content: space-between;
+    padding: 0 10px;
   }
 }
-
 
 @media (max-width: 480px) {
   .title {
